@@ -27,8 +27,8 @@ jobs:
           context: .
           platforms: linux/amd64
           push: true
-          tags: tumichnix/aptly:${{ GITHUB_REF }}
+          tags: tumichnix/aptly:${{ github.ref }}
 
       - name: Inspect
         run: |
-          docker image inspect tumichnix/aptly:${GITHUB_REF}
+          docker image inspect tumichnix/aptly:${{ github.ref }}
