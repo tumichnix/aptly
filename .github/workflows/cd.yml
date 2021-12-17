@@ -28,7 +28,3 @@ jobs:
           platforms: linux/amd64
           push: true
           tags: tumichnix/aptly:${{ github.event.release.tag_name }}
-
-      - name: Inspect
-        run: |
-          docker image inspect tumichnix/aptly:${{ github.event.release.tag_name }}
