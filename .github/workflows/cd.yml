@@ -27,7 +27,7 @@ jobs:
           context: .
           platforms: linux/amd64
           push: true
-          tags: tumichnix/aptly:${GITHUB_REF}
+          tags: tumichnix/aptly:${{ GITHUB_REF }}
 
       - name: Inspect
         run: |
