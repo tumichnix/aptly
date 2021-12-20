@@ -26,6 +26,8 @@ COPY assets/supervisord.conf /etc/supervisor/supervisord.conf
 
 VOLUME [ "/opt/aptly" ]
 
+VOLUME [ "/root/.gnupg" ]
+
 EXPOSE 80 8080
 
 CMD ["/usr/bin/supervisord"]

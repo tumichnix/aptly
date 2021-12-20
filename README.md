@@ -9,3 +9,15 @@ aptly in a container
 ```bash
 docker buildx build --platform linux/amd64 -t tumichnix/aptly:latest .
 ```
+
+## Run
+
+```bash
+docker run -it \
+  -v /mnt/aptly:/opt/aptly \
+  -v /mnt/gnupg:/root/.gnupg \
+  -p 80:80 \
+  -p 80:80:8080 \
+  --name=aptly \
+  tumichnix/aptly:latest
+```
