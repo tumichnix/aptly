@@ -1,20 +1,13 @@
-FROM ubuntu:focal
+FROM ubuntu:23.04
 
 LABEL maintainer="tumichnix (tumichnix@daus.family)"
 
 ENV DEBIAN_FRONTEND noninteractive
-ENV APTLY_VERSION=1.4.0
+ENV APTLY_VERSION=1.5.0+ds1-1
 
 RUN apt-get update \
-    && apt-get -y install gnupg2 nginx supervisor wget \
-    && apt-get clean \
-    && rm -rf /var/lib/apt/lists/*
-
-RUN wget -qO - https://www.aptly.info/pubkey.txt | apt-key add - \
-    && echo "deb http://repo.aptly.info/ squeeze main" > /etc/apt/sources.list.d/aptly.list
-
-RUN apt-get update \
-    && apt-get -y install aptly=$APTLY_VERSION \
+    && apt-cache show aptly \
+    && apt-get -y install gnupg2 nginx supervisor wget aptly=$APTLY_VERSION \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
